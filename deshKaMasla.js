@@ -105,6 +105,6 @@ apiUrl+((config?.category!='')?`&category=${config.category}`:'')+((config?.quer
     res.send("success");
   });
 
-  app.listen(port, () => {
-    console.log(`Server started on port ${port}`);
+  app.listen(8000, () => {
+    console.log(`Server started on port ${8000}`);
   });

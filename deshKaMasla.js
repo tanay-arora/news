@@ -98,6 +98,13 @@ apiUrl+((config?.category!='')?`&category=${config.category}`:'')+((config?.quer
     await update_data('hi_education','','hi',0,'education')
     await update_data('hi_environment','environment','hi');
   }
-  
-   update_all_data();  
 
+
+  app.get('/',(req,res)=>{
+   update_all_data();  
+    res.send("success");
+  });
+
+  app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
+  });

@@ -1,4 +1,3 @@
-
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -14,16 +13,15 @@ const axios = require('axios');
 const apiKey = 'pub_188693219b5db8169608fa5b3cadf48fbbc4d';
 const apiUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}`;
 
-const { initializeApp, cert } = require('firebase-admin/app');
-const { getFirestore, } = require('firebase-admin/firestore');
 
+const admin = require("firebase-admin");
 const serviceAccount = require('./news.json');
 
-initializeApp({
-  credential: cert(serviceAccount)
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
 });
 
-const db = getFirestore();
+const db = admin.firestore();
 
 async function deleteCollection(collectionPath) {
     const collectionRef = db.collection(collectionPath);
